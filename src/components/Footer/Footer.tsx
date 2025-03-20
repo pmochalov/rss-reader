@@ -6,9 +6,7 @@ const Footer: React.FC = () => {
         <footer className={s.footer}>
             {" "}
             <div className={common.containerFluid}>
-                <footer className={s.footer}>
-                    2025 <a href='/'>Читалка</a>
-                </footer>
+                2025 <a href='/'>Читалка</a>
             </div>
         </footer>
     );

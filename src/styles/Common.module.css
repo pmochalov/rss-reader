@@ -6,7 +6,7 @@
 }
 
 .container {
-    max-width: 1024px;
+    max-width: var(--containerWidth);
     /* background-color: bisque; */
 }
 

@@ -4,11 +4,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
+    position: sticky;
+    top: 0;
 }
 
 .logo {
     color: #fff;
     font-weight: var(--fontWeightBold);
-    font-size: 32px;
+    font-size: 2rem;
 }
