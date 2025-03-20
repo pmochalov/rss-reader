@@ -1,0 +1,14 @@
+.header {
+    background-color: var(--headerBgColor);
+    height: 96px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.logo {
+    color: #fff;
+    font-weight: var(--fontWeightBold);
+    font-size: 32px;
+}

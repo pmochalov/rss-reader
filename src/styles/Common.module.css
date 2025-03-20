@@ -1,0 +1,15 @@
+.container,
+.containerFluid {
+    margin: 0 auto;
+    padding: 0 16px;
+    width: 100%;
+}
+
+.container {
+    max-width: 1024px;
+    /* background-color: bisque; */
+}
+
+.containerFluid {
+    /* background-color: lightblue; */
+}
