@@ -1,0 +1,27 @@
+.main {
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) minmax(320px, var(--containerWidth)) 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "aside outlet empty";
+    gap: 2rem;
+}
+
+.main__aside {
+    grid-area: aside;
+    padding: 1rem;
+    background-color: bisque;
+}
+
+.main__outlet {
+    grid-area: outlet;
+}
+
+.main__empty {
+    grid-area: empty;
+}
+
+.main__categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

@@ -9,7 +9,6 @@ const Header: React.FC = () => {
                     Читалка
                 </a>
             </div>
-            <button className={s.toggleButton}>+</button>
         </header>
     );
 };

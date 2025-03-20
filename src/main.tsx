@@ -12,7 +12,7 @@ import { store } from "./store.ts";
 import { Provider } from "react-redux";
 
 import { Home } from "./Home.tsx";
-import { Layout } from "./Layout.tsx";
+import { Layout } from "./components/Layout/Layout.tsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
