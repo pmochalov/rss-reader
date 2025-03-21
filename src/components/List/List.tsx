@@ -1,4 +1,5 @@
 import { Card } from "../Card/Card";
+import s from "./List.module.css";
 
 type ListProps = {
     title: string;
@@ -8,14 +9,7 @@ const List: React.FC<ListProps> = ({ title }) => {
     return (
         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             <h1>{title}</h1>
-            <div
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr",
-                    gridTemplateRows: "auto",
-                    gap: "28px",
-                }}
-            >
+            <div className={s.list}>
                 <Card />
                 <Card />
             </div>
