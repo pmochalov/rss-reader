@@ -2,29 +2,31 @@ import { createSlice } from '@reduxjs/toolkit'
 // import type { PayloadAction } from '@reduxjs/toolkit'
 
 const data = [
-    { title: "Какой-то заголовок" }
+    { title: "Спорт" },
+    { title: "Новости" },
+    { title: "Работа" },
 ]
 
-type Category = {
+type Item = {
     title: string
 }
 
 type CategoriesState = {
-    items: Category[]
+    items: Item[]
 }
 
 const initialState: CategoriesState = {
     items: [...data]
 }
 
-export const categoriesSlice = createSlice({
-    name: 'categories',
+export const menuSlice = createSlice({
+    name: 'menu',
     initialState,
     reducers: {
-        // addCategory: (state, action: PayloadAction<Category>) => {
+        // addItem: (state, action: PayloadAction<Item>) => {
         // state.items ... 
         // },
-        // removeCategory: (state, action: PayloadAction<number>) => {
+        // removeItem: (state, action: PayloadAction<number>) => {
         // state.items ...
         // },
     },
@@ -32,4 +34,4 @@ export const categoriesSlice = createSlice({
 
 // export const { addCategory, removeCategory } = categoriesSlice.actions
 
-export default categoriesSlice.reducer
+export default menuSlice.reducer
