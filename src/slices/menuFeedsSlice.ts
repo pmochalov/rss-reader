@@ -21,8 +21,8 @@ const initialState: CategoriesState = {
     items: [...data]
 }
 
-export const menuSlice = createSlice({
-    name: 'menu',
+export const menuFeedsSlice = createSlice({
+    name: 'menufeeds',
     initialState,
     reducers: {
         // addItem: (state, action: PayloadAction<Item>) => {
@@ -36,4 +36,4 @@ export const menuSlice = createSlice({
 
 // export const { addCategory, removeCategory } = categoriesSlice.actions
 
-export default menuSlice.reducer
+export default menuFeedsSlice.reducer

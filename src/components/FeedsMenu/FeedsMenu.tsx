@@ -1,8 +1,8 @@
 import { useAppSelector } from "../../hooks";
-import s from "./Menu.module.css";
+import s from "./FeedsMenu.module.css";
 
-const Menu: React.FC = () => {
-    const { items } = useAppSelector((state) => state.menu);
+const FeedsMenu: React.FC = () => {
+    const { items } = useAppSelector((state) => state.menufeeds);
 
     return (
         <nav className={s.menu}>
@@ -13,4 +13,4 @@ const Menu: React.FC = () => {
     );
 };
 
-export { Menu };
+export { FeedsMenu };
