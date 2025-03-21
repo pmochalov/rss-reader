@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 
 import { Home } from "./Home.tsx";
 import { Layout } from "./components/Layout/Layout.tsx";
+import { Feed } from "./pages/Feed/Feed.tsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,7 +23,7 @@ const router = createBrowserRouter(
             errorElement={<>Страница ошибки</>}
         >
             <Route index element={<Home />} />
-            {/* <Route path='category/:id' element={<Category />} /> */}
+            <Route path='feed/:id' element={<Feed />} />
         </Route>
     ),
     {
