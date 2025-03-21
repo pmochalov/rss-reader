@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../hooks";
 import s from "./FeedsMenu.module.css";
 import { FeedAddForm } from "./FeedAddForm";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const FeedsMenu: React.FC = () => {
     const { pathname } = useLocation();

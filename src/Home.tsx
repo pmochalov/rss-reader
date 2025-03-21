@@ -1,4 +1,3 @@
-import { Card } from "./components/Card/Card";
 import { List } from "./components/List/List";
 
 const Home = () => (
