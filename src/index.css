@@ -14,7 +14,7 @@
   --colorText: 17, 17, 17;
 
   /* #EF476F; */
-  --colorDanger: 39, 71, 111;
+  --colorDanger: 239, 71, 111;
   /*#FFD166;*/
   --colorWarn: 255, 209, 102;
   /* #06D6A0 */
@@ -75,7 +75,7 @@ a {
 }
 
 a:hover {
-  color: rgb(var(--colorPrimary));
+  color: rgb(var(--colorDanger));
 }
 
 
