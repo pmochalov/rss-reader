@@ -18,11 +18,3 @@
 .main__empty {
     grid-area: empty;
 }
-
-.main__categories {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    /* background-color: aquamarine; */
-    justify-self: end;
-}
