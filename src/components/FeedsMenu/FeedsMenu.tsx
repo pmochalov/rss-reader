@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { useAppSelector } from "../../hooks";
 import s from "./FeedsMenu.module.css";
+import { FeedAddForm } from "./FeedAddForm";
 
 const FeedsMenu: React.FC = () => {
     const { items } = useAppSelector((state) => state.menufeeds);
@@ -14,32 +14,6 @@ const FeedsMenu: React.FC = () => {
             </nav>
             <FeedAddForm />
         </>
-    );
-};
-
-const FeedAddForm: React.FC = () => {
-    const [title, setTitle] = useState<string>("");
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log("submit");
-    };
-
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        const { value } = e.target;
-
-        setTitle(value);
-    };
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <input type='text' title={title} onChange={handleChange} />
-            <button type='submit' disabled={title.trim().length === 0}>
-                Добавить
-            </button>
-        </form>
     );
 };
 

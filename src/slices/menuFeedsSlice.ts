@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 // import type { PayloadAction } from '@reduxjs/toolkit'
 
 const data = [
@@ -25,15 +25,15 @@ export const menuFeedsSlice = createSlice({
     name: 'menufeeds',
     initialState,
     reducers: {
-        // addItem: (state, action: PayloadAction<Item>) => {
-        // state.items ... 
-        // },
+        addFeedItem: (state, action: PayloadAction<Item>) => {
+            state.items = [...state.items, action.payload];
+        },
         // removeItem: (state, action: PayloadAction<number>) => {
         // state.items ...
         // },
     },
 })
 
-// export const { addCategory, removeCategory } = categoriesSlice.actions
+export const { addFeedItem } = menuFeedsSlice.actions;
 
-export default menuFeedsSlice.reducer
+export default menuFeedsSlice.reducer;
