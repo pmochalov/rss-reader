@@ -3,6 +3,9 @@ import { useAppDispatch } from "../../hooks";
 
 import { addFeedItem } from "../../slices/menuFeedsSlice";
 
+import s from "./../../styles/forms.module.css";
+import b from "./../../styles/buttons.module.css";
+
 const FeedAddForm: React.FC = () => {
     const [title, setTitle] = useState<string>("");
 
@@ -28,9 +31,19 @@ const FeedAddForm: React.FC = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type='text' value={title} onChange={handleChange} />
-            <button type='submit' disabled={title.trim().length === 0}>
+        <form onSubmit={handleSubmit} className={s.form}>
+            <input
+                type='text'
+                value={title}
+                onChange={handleChange}
+                className={s.input}
+                placeholder='Название категории'
+            />
+            <button
+                type='submit'
+                disabled={title.trim().length === 0}
+                className={b.button}
+            >
                 Добавить
             </button>
         </form>

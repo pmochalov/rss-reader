@@ -1,0 +1,17 @@
+.button {
+    padding: calc(1rem / 2);
+    cursor: pointer;
+    font-weight: var(--fontWeightBold);
+
+    height: 3rem;
+    font-size: var(--fontSize);
+    font-family: var(--fontFamily);
+    color: #fff;
+    background-color: rgb(var(--colorPrimary));
+    border-radius: 0.5rem;
+    border: none;
+}
+
+button[disabled] {
+    background-color: rgba(var(--colorPrimary), .5);
+}
