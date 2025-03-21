@@ -2,8 +2,7 @@ import { List } from "./components/List/List";
 
 const Home = () => (
     <>
-        <h1>Все потоки</h1>
-        <List />
+        <List title={"Все потоки"} />
     </>
 );
 export { Home };

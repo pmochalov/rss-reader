@@ -1,19 +1,24 @@
 import { Card } from "../Card/Card";
 
-const List: React.FC = () => {
+type ListProps = {
+    title: string;
+};
+
+const List: React.FC<ListProps> = ({ title }) => {
     return (
-        <div
-            style={{
-                display: "grid",
-                gridTemplateColumns: "1fr",
-                gridTemplateRows: "auto",
-                gap: "28px",
-            }}
-        >
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <h1>{title}</h1>
+            <div
+                style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr",
+                    gridTemplateRows: "auto",
+                    gap: "28px",
+                }}
+            >
+                <Card />
+                <Card />
+            </div>
         </div>
     );
 };

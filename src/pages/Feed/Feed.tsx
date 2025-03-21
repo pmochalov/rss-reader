@@ -24,10 +24,9 @@ const Feed: React.FC = () => {
     }
 
     return (
-        <>
-            <h1>{feed.title}</h1>
-            <List />
-        </>
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <List title={feed.title} />
+        </div>
     );
 };
 
