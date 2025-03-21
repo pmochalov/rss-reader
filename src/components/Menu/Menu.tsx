@@ -1,13 +1,14 @@
+import { useAppSelector } from "../../hooks";
 import s from "./Menu.module.css";
 
 const Menu: React.FC = () => {
+    const { items } = useAppSelector((state) => state.menu);
+
     return (
         <nav className={s.menu}>
-            <a href='/'>Все потоки</a>
-            <a href='/'>Новости</a>
-            <a href='/'>Спорт</a>
-            <a href='/'>Творчество</a>
-            <a href='/'>Технлогии</a>
+            {items.map((item) => (
+                <a href={`/${item.id}`}>{item.title}</a>
+            ))}
         </nav>
     );
 };
