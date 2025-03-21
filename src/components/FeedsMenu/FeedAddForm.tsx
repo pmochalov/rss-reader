@@ -37,7 +37,7 @@ const FeedAddForm: React.FC = () => {
                 value={title}
                 onChange={handleChange}
                 className={s.input}
-                placeholder='Название категории'
+                placeholder='Новая категория'
             />
             <button
                 type='submit'

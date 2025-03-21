@@ -1,21 +1,10 @@
 import { Card } from "./components/Card/Card";
+import { List } from "./components/List/List";
 
-const Home = () => {
-    return (
-        <div
-            style={{
-                display: "grid",
-                gridTemplateColumns: "1fr",
-                gridTemplateRows: "auto",
-                gap: "28px",
-            }}
-        >
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-        </div>
-    );
-};
-
+const Home = () => (
+    <>
+        <h1>Все потоки</h1>
+        <List />
+    </>
+);
 export { Home };

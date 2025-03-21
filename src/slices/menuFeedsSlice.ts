@@ -2,14 +2,13 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 // import type { PayloadAction } from '@reduxjs/toolkit'
 
 const data = [
-    { id: "all", title: "Все потоки" },
     { id: 1, title: "Спорт" },
     { id: 2, title: "Новости" },
     { id: 3, title: "Работа" },
 ];
 
 type Item = {
-    id: string | number;
+    id: number;
     title: string
 }
 
