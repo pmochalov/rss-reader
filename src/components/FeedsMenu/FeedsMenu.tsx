@@ -9,7 +9,9 @@ const FeedsMenu: React.FC = () => {
         <>
             <nav className={s.menu}>
                 {items.map((item) => (
-                    <a href={`/${item.id}`}>{item.title}</a>
+                    <a href={`/${item.id}`} key={item.id}>
+                        {item.title}
+                    </a>
                 ))}
             </nav>
             <FeedAddForm />
