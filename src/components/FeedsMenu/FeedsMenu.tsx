@@ -1,6 +1,7 @@
 import { useAppSelector } from "../../hooks";
 import s from "./FeedsMenu.module.css";
 import { FeedAddForm } from "./FeedAddForm";
+import { Link } from "react-router-dom";
 
 const FeedsMenu: React.FC = () => {
     const { items } = useAppSelector((state) => state.menufeeds);
@@ -9,9 +10,9 @@ const FeedsMenu: React.FC = () => {
         <>
             <nav className={s.menu}>
                 {items.map((item) => (
-                    <a href={`/${item.id}`} key={item.id}>
+                    <Link to={`/feed/${item.id}`} key={item.id}>
                         {item.title}
-                    </a>
+                    </Link>
                 ))}
             </nav>
             <FeedAddForm />
