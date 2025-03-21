@@ -68,6 +68,24 @@ a:hover {
 
 
 
+input[type="text"],
+button {
+  height: 2.5rem;
+  font-size: var(--fontSize);
+  font-family: var(--fontFamily);
+  color: var(--pageTextColor);
+}
+
+input[type="text"] {
+  border: none;
+
+  padding: calc(1rem / 2);
+}
+
+button {
+  padding: calc(1rem / 2);
+  cursor: pointer;
+}
 
 /*
 
