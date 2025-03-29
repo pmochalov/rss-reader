@@ -15,9 +15,6 @@ export type FeedItem = {
     author: string;
     created: number;
     published: number;
-    category: string[];
-    // enclosures: string[];
-    // media: any;
 }
 
 export type Section = {
