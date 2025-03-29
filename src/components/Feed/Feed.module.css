@@ -3,7 +3,6 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 2rem;
-    /* border: #f00 2px solid; */
     min-height: 100vh;
 }
 

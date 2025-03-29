@@ -7,6 +7,9 @@ import { parse } from "rss-to-json";
 import { FeedList } from "./FeedList";
 import { Feed } from "../../@types";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 type FeedProps = {
     url: string;
 };
@@ -77,7 +80,7 @@ const FeedBlock: React.FC<FeedProps> = ({ url }) => {
     return (
         <div ref={elemRef} className={s.feeds}>
             {loading ? (
-                <div>Загрузка...</div>
+                <Skeleton count={5} height={"10rem"} />
             ) : (
                 data && (
                     <section className={s.feed}>
