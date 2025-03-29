@@ -13,7 +13,6 @@ export type FeedItem = {
     description: string;
     link: string;
     author: string;
-    created: number;
     published: number;
 }
 
