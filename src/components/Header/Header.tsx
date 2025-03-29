@@ -7,7 +7,7 @@ const Header: React.FC = () => {
         <header className={s.header}>
             <div className={common.containerFluid}>
                 <Link to='/' className={s.logo} title='Читалка RSS'>
-                    Читалка
+                    RSS reader
                 </Link>
             </div>
         </header>
