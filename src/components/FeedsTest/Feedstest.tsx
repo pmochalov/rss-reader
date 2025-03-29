@@ -9,6 +9,9 @@ const Feedstest: React.FC = () => {
 
     const urls = itemsfiltered.map((i) => i.urls).flat();
 
+    if (urls.length === 0) {
+        return <>В категории пока нет ссылок...</>;
+    }
     return (
         <div>
             <ul>
