@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../hooks";
+import { LinkAddForm } from "./LinkAddForm";
 
 const Feedstest: React.FC = () => {
     const { current, items } = useAppSelector((state) => state.sections);
@@ -19,6 +20,7 @@ const Feedstest: React.FC = () => {
                     <div key={i}>{u}</div>
                 ))}
             </ul>
+            <LinkAddForm />
         </div>
     );
 };
