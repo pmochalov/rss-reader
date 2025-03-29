@@ -6,6 +6,8 @@ const Home = () => {
 
     const urls = items.map((item) => item.urls).flat();
 
-    return <FeedsList title={"Все потоки"} urls={urls} />;
+    return (
+        <FeedsList title={import.meta.env.VITE_ROOT_MENU_ITEM} urls={urls} />
+    );
 };
 export { Home };

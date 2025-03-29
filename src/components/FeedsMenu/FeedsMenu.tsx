@@ -16,7 +16,8 @@ const FeedsMenu: React.FC = () => {
                     to='/'
                     className={`${pathname === "/" ? s.active : ""}`}
                 >
-                    Все потоки <small className={s.count}>{count}</small>
+                    {import.meta.env.VITE_ROOT_MENU_ITEM}{" "}
+                    <small className={s.count}>{count}</small>
                 </NavLink>
                 {items.map((item) => (
                     <NavLink
