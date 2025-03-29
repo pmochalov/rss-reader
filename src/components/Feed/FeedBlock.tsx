@@ -4,7 +4,7 @@ import s from "./Feed.module.css";
 import { FeedInfo } from "./FeedInfo";
 
 import { parse } from "rss-to-json";
-import { FeedList } from "./FeedList";
+import { FeedCards } from "./FeedCards";
 import { Feed } from "../../@types";
 
 import Skeleton from "react-loading-skeleton";
@@ -90,7 +90,7 @@ const FeedBlock: React.FC<FeedProps> = ({ url }) => {
                             image={data.image}
                             link={data.link}
                         />
-                        <FeedList items={data.items} />
+                        <FeedCards items={data.items} />
                     </section>
                 )
             )}

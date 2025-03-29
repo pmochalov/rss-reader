@@ -10,10 +10,12 @@ const data = [
 ];
 
 type SectionsState = {
+    current: Section["id"] | null;
     items: Section[]
 }
 
 const initialState: SectionsState = {
+    current: null,
     items: [...data]
 }
 
@@ -24,9 +26,12 @@ export const sectionsSlice = createSlice({
         addSection: (state, action: PayloadAction<Section>) => {
             state.items = [...state.items, action.payload];
         },
+        setCurrentSection: (state, action: PayloadAction<Section["id"] | null>) => {
+            state.current = action.payload;
+        },
     },
 })
 
-export const { addSection } = sectionsSlice.actions;
+export const { addSection, setCurrentSection } = sectionsSlice.actions;
 
 export default sectionsSlice.reducer;

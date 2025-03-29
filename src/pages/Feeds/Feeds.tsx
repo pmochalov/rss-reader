@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { Section } from "../../@types";
 
 import { FeedsList } from "../../components/FeedsList/FeedsList";
+import { setCurrentSection } from "../../slices/sectionsSlice";
 
 const Feeds: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -11,8 +12,12 @@ const Feeds: React.FC = () => {
 
     const { items } = useAppSelector((state) => state.sections);
 
+    const dispatch = useAppDispatch();
+
     useEffect(() => {
-        setSection(items.find((item) => item.id === Number(id)) || null);
+        const s = items.find((item) => item.id === Number(id)) || null;
+
+        dispatch(setCurrentSection(s ? s.id : null));
 
         return () => setSection(null);
     }, [id]);
