@@ -1,20 +1,23 @@
 .main {
     display: grid;
-    grid-template-columns: minmax(320px, 1fr) minmax(320px, var(--containerWidth)) 1fr;
+    grid-template-columns: minmax(15rem, 1fr) minmax(15rem, 1fr) minmax(320px, var(--containerWidth));
     grid-template-rows: auto;
-    grid-template-areas: "aside outlet empty";
-    gap: 2rem;
+    grid-template-areas: "aside empty outlet ";
+    gap: 1rem;
 }
 
 .main__aside {
     grid-area: aside;
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 .main__outlet {
     grid-area: outlet;
+    padding: 0 1rem;
+    overflow-y: scroll;
 }
 
-.main__empty {
-    grid-area: empty;
+.main__feedslist {
+    grid-area: feedslist;
+    background-color: #fc0;
 }

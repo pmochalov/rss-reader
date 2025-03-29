@@ -5,7 +5,7 @@ import s from "./Header.module.css";
 const Header: React.FC = () => {
     return (
         <header className={s.header}>
-            <div className={common.container}>
+            <div className={common.containerFluid}>
                 <Link to='/' className={s.logo} title='Читалка RSS'>
                     Читалка
                 </Link>

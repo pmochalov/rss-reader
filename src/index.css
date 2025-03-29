@@ -63,9 +63,12 @@ body {
   min-height: 100%;
 
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(15rem, 1fr) minmax(15rem, 1fr) minmax(320px, var(--containerWidth));
   grid-template-rows: auto 1fr auto;
   row-gap: 1rem;
+  grid-template-areas: "header header header"
+    "aside feedslist outlet"
+    "footer footer footer";
 }
 
 a {

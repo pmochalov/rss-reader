@@ -1,5 +1,6 @@
 .footer {
-    height: 64px;
+    grid-area: footer;
+    height: 3rem;
     display: flex;
     align-items: center;
 }

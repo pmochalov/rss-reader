@@ -9,15 +9,15 @@ const Layout = () => {
     return (
         <>
             <Header />
-            <div className={s.main}>
-                <div className={s.main__aside}>
-                    <FeedsMenu />
-                </div>
-                <div className={s.main__outlet}>
-                    <Outlet />
-                </div>
-                <div className={s.main__empty}></div>
+
+            <div className={s.main__aside}>
+                <FeedsMenu />
             </div>
+            <div className={s.main__feedslist}></div>
+            <div className={s.main__outlet}>
+                <Outlet />
+            </div>
+
             <Footer />
         </>
     );
