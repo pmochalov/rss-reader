@@ -6,7 +6,8 @@ import { NavLink, useLocation } from "react-router-dom";
 const FeedsMenu: React.FC = () => {
     const { pathname } = useLocation();
 
-    const { items } = useAppSelector((state) => state.menufeeds);
+    const { items } = useAppSelector((state) => state.sections);
+    const count = items.map((item) => item.urls).flat().length;
 
     return (
         <>
@@ -15,7 +16,7 @@ const FeedsMenu: React.FC = () => {
                     to='/'
                     className={`${pathname === "/" ? s.active : ""}`}
                 >
-                    Все потоки
+                    Все потоки <small className={s.count}>{count}</small>
                 </NavLink>
                 {items.map((item) => (
                     <NavLink
@@ -25,7 +26,8 @@ const FeedsMenu: React.FC = () => {
                         }
                         key={item.id}
                     >
-                        {item.title}
+                        {item.title}{" "}
+                        <small className={s.count}>{item.urls.length}</small>
                     </NavLink>
                 ))}
             </nav>

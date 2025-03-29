@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import menuFeedsReducer from './slices/menuFeedsSlice'
+import sectionsReducer from './slices/sectionsSlice'
+import feedsReducer from './slices/feedsSlice'
 
 export const store = configureStore({
     reducer: {
-        menufeeds: menuFeedsReducer,
+        feeds: feedsReducer,
+        sections: sectionsReducer,
     },
 });
 

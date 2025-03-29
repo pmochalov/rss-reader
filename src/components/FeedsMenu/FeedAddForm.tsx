@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../hooks";
 
-import { addFeedItem } from "../../slices/menuFeedsSlice";
+import { addSection } from "../../slices/sectionsSlice";
 
 import s from "./../../styles/forms.module.css";
 import b from "./../../styles/buttons.module.css";
@@ -14,9 +14,10 @@ const FeedAddForm: React.FC = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         dispatch(
-            addFeedItem({
+            addSection({
                 id: Date.now(),
                 title,
+                urls: [],
             })
         );
         setTitle("");

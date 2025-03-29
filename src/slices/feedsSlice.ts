@@ -1,36 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { Feed } from '../@types';
 
-const data = [
-    { categoryId: null, url: "http://ilyabirman.ru/meanwhile/rss/" },
-    { categoryId: 2, url: "https://habr.com/ru/rss" },
-];
-
-type Item = {
-    categoryId: number | null;
-    url: string
-}
+const data: Feed[] = [];
 
 type FeedsState = {
-    items: Item[]
+    data: Feed[]
 }
 
 const initialState: FeedsState = {
-    items: [...data]
+    data: [...data]
 }
 
 export const feedsSlice = createSlice({
     name: 'feeds',
     initialState,
     reducers: {
-        // addFeedItem: (state, action: PayloadAction<Item>) => {
-        //     state.items = [...state.items, action.payload];
-        // },
+        addFeed: (state, action: PayloadAction<Feed>) => {
+            state.data = [...state.data, action.payload];
+        },
+        resetFeed: () => initialState
         // removeItem: (state, action: PayloadAction<number>) => {
         // state.items ...
         // },
     },
 })
 
-// export const { addFeedItem } = feedsSlice.actions;
+export const { addFeed, resetFeed } = feedsSlice.actions;
 
 export default feedsSlice.reducer;

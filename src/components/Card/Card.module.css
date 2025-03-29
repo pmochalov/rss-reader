@@ -8,8 +8,14 @@
     row-gap: 1.125rem;
 }
 
+.card img {
+    max-width: 800px;
+    height: auto;
+}
+
 .card__title {
-    font-size: 2rem;
+    font-size: 1.25rem;
+    font-weight: var(--fontWeightBold);
     color: inherit;
 }
 
@@ -24,8 +30,8 @@
     gap: 1rem;
 }
 
-.card__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+.card__pubdata {
+    color: rgba(var(--colorText), 50%)
 }
+
+.card__links {}

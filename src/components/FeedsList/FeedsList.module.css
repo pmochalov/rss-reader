@@ -1,0 +1,13 @@
+.feeds,
+.feeds__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.feeds {
+    gap: 2rem;
+}
+
+.feeds__list {
+    gap: 1.5rem;
+}

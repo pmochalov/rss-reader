@@ -3,10 +3,13 @@
     flex-direction: column;
     gap: 1rem;
     font-size: 1.25rem;
-    /* background-color: aquamarine; */
-    /* justify-self: end; */
 }
 
 .active {
     font-weight: var(--fontWeightBold);
+}
+
+.count {
+    color: rgba(var(--colorText), 50%);
+    font-weight: var(--fontWeight);
 }
