@@ -1,26 +1,20 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../hooks";
+import { useAppSelector } from "../../hooks";
 import { Section } from "../../@types";
 
 import { FeedsList } from "../../components/FeedsList/FeedsList";
-import { setCurrentSection } from "../../slices/sectionsSlice";
 
 const Feeds: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
+    // const { id } = useParams<{ id: string }>();
     const [section, setSection] = useState<Section | null>();
 
-    const { items } = useAppSelector((state) => state.sections);
-
-    const dispatch = useAppDispatch();
+    const { current, items } = useAppSelector((state) => state.sections);
 
     useEffect(() => {
-        const s = items.find((item) => item.id === Number(id)) || null;
-
-        dispatch(setCurrentSection(s ? s.id : null));
+        setSection(items.find((item) => item.id === current) || null);
 
         return () => setSection(null);
-    }, [id]);
+    }, [current]);
 
     if (!section) {
         return <h1>Такой категории нет.</h1>;
