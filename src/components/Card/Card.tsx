@@ -4,7 +4,6 @@ type CardProps = {
     title: string;
     description: string;
     link: string;
-    created: number;
     published: number;
     author: string;
 };
@@ -13,7 +12,6 @@ const Card: React.FC<CardProps> = ({
     title,
     description,
     link,
-    created,
     published,
     author,
 }) => {
@@ -26,8 +24,7 @@ const Card: React.FC<CardProps> = ({
             <div dangerouslySetInnerHTML={{ __html: description }} />
             <div className={s.card__panel}>
                 <div className={s.card__pubdata}>
-                    <span>created: {created}</span>
-                    <span>published: {published}</span>
+                    <span>{new Date(published).toLocaleString()}</span>
                     <span>Автор: {author}</span>
                 </div>
                 <div className={s.card__links}>
