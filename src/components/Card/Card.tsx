@@ -20,7 +20,6 @@ const Card: React.FC<CardProps> = ({
             <a href={link} className={s.card__title}>
                 {title}
             </a>
-            {/* <div className={s.card__content}>{description}</div> */}
             <div dangerouslySetInnerHTML={{ __html: description }} />
             <div className={s.card__panel}>
                 <div className={s.card__pubdata}>
