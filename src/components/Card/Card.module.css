@@ -34,6 +34,7 @@
     color: rgba(var(--colorText), 50%)
 }
 
+.card__pubdata,
 .card__links {
     display: flex;
     gap: 1rem
