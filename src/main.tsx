@@ -11,7 +11,6 @@ import {
 import { store } from "./store.ts";
 import { Provider } from "react-redux";
 
-import { Home } from "./Home.tsx";
 import { Layout } from "./components/Layout/Layout.tsx";
 import { Feeds } from "./pages/Feeds/Feeds.tsx";
 
@@ -22,8 +21,8 @@ const router = createBrowserRouter(
             element={<Layout />}
             errorElement={<>Страница ошибки</>}
         >
-            <Route index element={<Home />} />
-            <Route path='feed/:id' element={<Feeds />} />
+            <Route index element={<Feeds />} />
+            <Route path='category/:id' element={<Feeds />} />
         </Route>
     ),
     {

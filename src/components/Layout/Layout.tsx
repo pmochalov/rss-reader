@@ -5,29 +5,39 @@ import { Outlet, useMatch } from "react-router-dom";
 import s from "./Layout.module.css";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
-import { FeedsMenu } from "../FeedsMenu/FeedsMenu";
-import { Feedstest } from "../FeedsTest/Feedstest";
-import { useAppDispatch } from "../../hooks";
-import { setCurrentSection } from "../../slices/sectionsSlice";
+import { Categories } from "../Categories/Categories";
+import { Feeds } from "../Feeds/Feeds";
+
+import { setCurrentSection } from "../../slices/categoriesSlice";
+import { fetchToken } from "../../slices/authSlice";
+
+import { useAppDispatch, useAppSelector } from "../../hooks";
 
 const Layout = () => {
-    const match = useMatch("/feed/:id");
+    const match = useMatch("/category/:id");
 
     const dispatch = useAppDispatch();
+    const { status: tokenStatus } = useAppSelector((state) => state.auth);
 
     useEffect(() => {
         dispatch(setCurrentSection(match ? Number(match.params.id) : null));
     }, [match]);
+
+    useEffect(() => {
+        if (tokenStatus === "idle") {
+            dispatch(fetchToken());
+        }
+    }, [dispatch, tokenStatus]);
 
     return (
         <>
             <Header />
 
             <div className={s.main__aside}>
-                <FeedsMenu />
+                <Categories />
             </div>
             <div className={s.main__feedslist}>
-                <Feedstest />
+                <Feeds />
             </div>
             <div className={s.main__outlet}>
                 <Outlet />

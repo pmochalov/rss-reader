@@ -1,16 +1,14 @@
-import { Section } from "../../@types";
+import { Category } from "../../@types";
 import { FeedBlock } from "../Feed/FeedBlock";
 import s from "./FeedsList.module.css";
 
 type FeedListProps = {
-    title: Section["title"];
-    urls: Section["urls"];
+    urls: Category["urls"];
 };
 
-const FeedsList: React.FC<FeedListProps> = ({ title, urls }) => {
+const FeedsList: React.FC<FeedListProps> = ({ urls }) => {
     return (
         <div className={s.feeds}>
-            <h1>{title}</h1>
             <div className={s.feeds__list}>
                 {urls.map((url, index) => (
                     <FeedBlock url={url} key={index} />

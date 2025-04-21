@@ -1,0 +1,10 @@
+.feeds {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: calc(1rem * 1.25)
+}
+
+.feeds__empty {
+    color: rgba(var(--colorText), 50%)
+}

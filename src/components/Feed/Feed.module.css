@@ -17,6 +17,11 @@
 }
 
 .feed__title {
+    font-size: 2rem;
+    font-weight: var(--fontWeightBold);
+}
+
+.feed__description {
     font-size: 1.25rem;
     font-weight: var(--fontWeightBold);
 }
@@ -29,26 +34,11 @@
 .info {
     background-color: #fff;
     border-radius: 0.5rem;
-    /* border: rgb(var(--colorSecondary)) 1px solid; */
-    /* box-shadow: rgba(var(--colorSecondary), 10%) 0px 4px 0px; */
     padding: 1rem;
-    display: grid;
-    grid-template-columns: minmax(5rem, 8rem) 1fr;
-    grid-template-rows: auto;
-    gap: 2rem;
-}
-
-.info__image {
-    aspect-ratio: 1 / 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(var(--colorPageBg));
+    gap: 1rem;
+    flex-direction: column;
 }
 
-.info__image img {
-    width: 100%;
-    height: auto;
-}
 
 /* .info__data {} */

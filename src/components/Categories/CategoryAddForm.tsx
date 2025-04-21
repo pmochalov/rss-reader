@@ -1,26 +1,17 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../hooks";
-
-import { addSection } from "../../slices/sectionsSlice";
 
 import s from "./../../styles/forms.module.css";
 import b from "./../../styles/buttons.module.css";
+import { useAddCategoryMutation } from "../../api/category";
 
-const FeedAddForm: React.FC = () => {
+const CategoryAddForm: React.FC = () => {
     const [title, setTitle] = useState<string>("");
+    const [addSection, { isLoading }] = useAddCategoryMutation();
 
-    const dispatch = useAppDispatch();
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(
-            addSection({
-                id: Date.now(),
-                title,
-                urls: [],
-            })
-        );
-        setTitle("");
+
+        await addSection({ title }).finally(() => setTitle(""));
     };
 
     const handleChange = (
@@ -38,17 +29,18 @@ const FeedAddForm: React.FC = () => {
                 value={title}
                 onChange={handleChange}
                 className={s.input}
-                placeholder='Новая категория'
+                placeholder='Название категории'
+                disabled={isLoading}
             />
             <button
                 type='submit'
-                disabled={title.trim().length === 0}
+                disabled={isLoading || title.trim().length === 0}
                 className={b.button}
             >
-                Добавить
+                {isLoading ? "Загрузка..." : "Добавить"}
             </button>
         </form>
     );
 };
 
-export { FeedAddForm };
+export { CategoryAddForm };

@@ -15,8 +15,7 @@ const FeedCards: React.FC<FeedListProps> = ({ items }) => {
                     title={item.title}
                     description={item.description}
                     link={item.link}
-                    published={item.published}
-                    author={item.author}
+                    pubDate={item.pubDate}
                     key={i}
                 />
             ))}

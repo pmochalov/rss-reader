@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 import s from "./Feed.module.css";
 import { FeedInfo } from "./FeedInfo";
-
-import { parse } from "rss-to-json";
 import { FeedCards } from "./FeedCards";
 import { Feed } from "../../@types";
 
@@ -15,7 +13,7 @@ type FeedProps = {
 };
 
 const FeedBlock: React.FC<FeedProps> = ({ url }) => {
-    const [data, setData] = useState<Feed | null>();
+    const [data, setData] = useState<Feed | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
     const elemRef = useRef<HTMLDivElement | null>(null);
@@ -23,10 +21,22 @@ const FeedBlock: React.FC<FeedProps> = ({ url }) => {
     useEffect(() => {
         const fetchData = async (url: string): Promise<Feed | null> => {
             try {
-                const data = await parse(
-                    `${import.meta.env.VITE_APP_PROXY}?url=${url}`
+                const response = await fetch(
+                    `${import.meta.env.VITE_APP_PROXY}?url=${encodeURIComponent(
+                        url
+                    )}`
                 );
-                return data as Feed;
+
+                // Проверяем статус ответа
+                if (!response.ok) {
+                    console.error("Ошибка HTTP:", response.status);
+                    return null;
+                }
+
+                // Парсим JSON
+                const rawData = await response.json();
+
+                return rawData as Feed;
             } catch (error) {
                 console.error("Ошибка при загрузке данных:", error);
                 return null;
@@ -45,8 +55,6 @@ const FeedBlock: React.FC<FeedProps> = ({ url }) => {
                     .then((data) => {
                         if (data) {
                             setData(data);
-                            // target.style.minHeight = "inherit";
-                            // target.style.border = "#000 1px solid";
                             target.classList.remove("feeds_loading");
                         }
                         if (elemRef.current) {
@@ -87,7 +95,6 @@ const FeedBlock: React.FC<FeedProps> = ({ url }) => {
                         <FeedInfo
                             title={data.title}
                             description={data.description}
-                            image={data.image}
                             link={data.link}
                         />
                         <FeedCards items={data.items} />

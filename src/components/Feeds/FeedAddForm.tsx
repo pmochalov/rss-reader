@@ -1,26 +1,24 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../hooks";
-
-import { addSection } from "../../slices/sectionsSlice";
 
 import s from "./../../styles/forms.module.css";
 import b from "./../../styles/buttons.module.css";
 
-const LinkAddForm: React.FC = () => {
+import { useAddFeedMutation } from "../../api/feed";
+import { useAppSelector } from "../../hooks";
+
+const FeedAddForm: React.FC = () => {
     const [url, setUrl] = useState<string>("");
 
-    const dispatch = useAppDispatch();
+    const [addFeed, { isLoading }] = useAddFeedMutation();
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const { current } = useAppSelector((state) => state.categories);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // dispatch(
-        //     addSection({
-        //         id: Date.now(),
-        //         title,
-        //         urls: [],
-        //     })
-        // );
-        // setTitle("");
+
+        await addFeed({ category_id: current, url, title: null }).finally(() =>
+            setUrl("")
+        );
     };
 
     const handleChange = (
@@ -31,6 +29,10 @@ const LinkAddForm: React.FC = () => {
         setUrl(value);
     };
 
+    if (isLoading) {
+        return <div className={s.loader}>Загрузка...</div>;
+    }
+
     return (
         <form onSubmit={handleSubmit} className={s.form}>
             <input
@@ -38,17 +40,17 @@ const LinkAddForm: React.FC = () => {
                 value={url}
                 onChange={handleChange}
                 className={s.input}
-                placeholder='URL feed'
+                placeholder='https://'
             />
             <button
                 type='submit'
                 disabled={url.trim().length === 0}
                 className={b.button}
             >
-                Добавить
+                {isLoading ? "Загрузка..." : "Добавить поток"}
             </button>
         </form>
     );
 };
 
-export { LinkAddForm };
+export { FeedAddForm };

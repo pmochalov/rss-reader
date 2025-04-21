@@ -1,17 +1,22 @@
-import { configureStore } from '@reduxjs/toolkit'
-import sectionsReducer from './slices/sectionsSlice'
-import feedsReducer from './slices/feedsSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './slices/authSlice';
+import categoriesReducer from './slices/categoriesSlice'
+
+import { categoryApi } from './api/category';
+import { feedApi } from './api/feed';
 
 export const store = configureStore({
     reducer: {
-        feeds: feedsReducer,
-        sections: sectionsReducer,
+        auth: authReducer,
+        categories: categoriesReducer,
+        [categoryApi.reducerPath]: categoryApi.reducer,
+        [feedApi.reducerPath]: feedApi.reducer,
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(categoryApi.middleware).concat(feedApi.middleware),
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
 
 export default store;
