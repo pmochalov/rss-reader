@@ -4,6 +4,8 @@
 
 **[Демо](https://mchlv.ru/projects/rss-reader/) 🔗**
 
+![App Screenshot](/rss-logo.png)
+
 ## Стек
 
 -   React.js + TypeScript
